@@ -3,8 +3,9 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 // MUI
 import { Box, Typography, useTheme } from "@mui/material";
-import { FlexBetween } from "@/themes/components/FlexBetween";
 import WalletIcon from '@mui/icons-material/Wallet';
+// Theme
+import { FlexBetween } from "@/themes/components/FlexBetween";
 
 export const Navbar = () => {
     const { palette } = useTheme();

@@ -2,6 +2,7 @@
 import { useMemo } from "react"
 // Components
 import { Navbar } from "./components/navbar/Navbar"
+import { Dashboard } from "./pages/dashboard/Dashboard"
 // MUI
 import { Box, CssBaseline, ThemeProvider } from "@mui/material"
 import { createTheme } from "@mui/material/styles"
@@ -22,7 +23,7 @@ function App() {
             <Navbar />
 
             <Routes>
-              <Route path="/" element={<div>Dashboard Page</div>} />
+              <Route path="/" element={<Dashboard />} />
               <Route path="/predictions" element={<div>Predictions Page</div>} />
             </Routes>
           </Box>
