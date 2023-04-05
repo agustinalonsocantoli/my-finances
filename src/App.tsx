@@ -1,8 +1,8 @@
 // React
 import { useMemo } from "react"
 // Components
-import { Navbar } from "./components/navbar/Navbar"
-import { Dashboard } from "./pages/dashboard/Dashboard"
+import { Navbar } from "./components/Navbar"
+import { Dashboard } from "./pages/Dashboard"
 // MUI
 import { Box, CssBaseline, ThemeProvider } from "@mui/material"
 import { createTheme } from "@mui/material/styles"
