@@ -9,18 +9,14 @@ import { IndicatorG } from "@/components/IndicatorG";
 import { IndicatorH } from "@/components/IndicatorH";
 import { IndicatorI } from "@/components/IndicatorI";
 import { IndicatorJ } from "@/components/IndicatorJ";
-
 // MUI
 import { Box, useMediaQuery } from "@mui/material";
 // Theme
 import { gridTemplateLargeScreens, gridTemplateSmallScreens } from "@/themes/grid-areas";
-// Redux
-import { useGetKpisQuery } from "@/state/api";
 
 export const Dashboard = () => {
     const isMediumScreens = useMediaQuery("(min-width: 1200px)")
-    const { data } = useGetKpisQuery();
-    console.log(data)
+    
 
     return(
         <Box width="100%" height="100%" display="grid" gap="1.5rem" sx={ isMediumScreens ? {
