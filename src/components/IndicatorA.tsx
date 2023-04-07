@@ -1,7 +1,3 @@
-// React
-import { useMemo } from "react";
-// Redux
-import { useGetKpisQuery } from "@/API/api";
 // Theme
 import { DashboardBox } from "@/themes/components/DashboardBox";
 import { useTheme } from "@mui/material";
@@ -10,22 +6,12 @@ import { ResponsiveContainer, AreaChart, XAxis, YAxis, Tooltip, Area } from "rec
 // Components
 import { HeaderBox } from "./HeaderBox";
 
-export const IndicatorA = () => {
-    const { palette } = useTheme();
-    const { data } = useGetKpisQuery();
+type Props = {
+    revenueExpenses: {} | undefined;
+};
 
-    const revenueExpenses = useMemo(() => {
-        return(
-            data && 
-            data[0].monthlyData.map(({ month, revenue, expenses }) => {
-                return {
-                    name: month.substring(0, 3),
-                    revenue: revenue,
-                    expenses: expenses,
-                }
-            })
-        );
-    }, [data]);
+export const IndicatorA = ({ revenueExpenses }: Props) => {
+    const { palette } = useTheme();
 
     return(
         <DashboardBox gridArea="a">

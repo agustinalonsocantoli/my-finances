@@ -1,3 +1,7 @@
+// React
+import { useMemo } from "react";
+// Redux
+import { useGetKpisQuery } from "@/API/api";
 // Components
 import { IndicatorA } from "@/components/IndicatorA";
 import { IndicatorB } from "@/components/IndicatorB";
@@ -16,6 +20,20 @@ import { gridTemplateLargeScreens, gridTemplateSmallScreens } from "@/themes/gri
 
 export const Dashboard = () => {
     const isMediumScreens = useMediaQuery("(min-width: 1200px)")
+    const { data } = useGetKpisQuery();
+
+    const revenueExpenses = useMemo(() => {
+        return(
+            data && 
+            data[0].monthlyData.map(({ month, revenue, expenses }) => {
+                return {
+                    name: month.substring(0, 3),
+                    revenue: revenue,
+                    expenses: expenses,
+                }
+            })
+        );
+    }, [data]);
     
 
     return(
@@ -31,16 +49,16 @@ export const Dashboard = () => {
         }
         }>
 
-            <IndicatorA />
-            <IndicatorB />
-            <IndicatorC />
-            <IndicatorD />
-            <IndicatorE />
-            <IndicatorF />
-            <IndicatorG />
-            <IndicatorH />
-            <IndicatorI />
-            <IndicatorJ />
+            <IndicatorA revenueExpenses={revenueExpenses}/>
+            <IndicatorB revenueExpenses={revenueExpenses}/>
+            <IndicatorC revenueExpenses={revenueExpenses}/>
+            <IndicatorD revenueExpenses={revenueExpenses}/>
+            <IndicatorE revenueExpenses={revenueExpenses}/>
+            <IndicatorF revenueExpenses={revenueExpenses}/>
+            <IndicatorG revenueExpenses={revenueExpenses}/>
+            <IndicatorH revenueExpenses={revenueExpenses}/>
+            <IndicatorI revenueExpenses={revenueExpenses}/>
+            <IndicatorJ revenueExpenses={revenueExpenses}/>
 
         </Box>
     );

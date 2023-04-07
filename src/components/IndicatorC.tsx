@@ -1,7 +1,11 @@
 // Theme
 import { DashboardBox } from "@/themes/components/DashboardBox";
 
-export const IndicatorC = () => {
+type Props = {
+    revenueExpenses: {} | undefined;
+};
+
+export const IndicatorC = ({ revenueExpenses }: Props) => {
     return(
         <DashboardBox gridArea="c">
             C
