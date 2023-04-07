@@ -1,3 +1,5 @@
+// React
+import { useMemo } from "react";
 // Theme
 import { DashboardBox } from "@/themes/components/DashboardBox";
 import { useTheme } from "@mui/material";
@@ -5,13 +7,28 @@ import { useTheme } from "@mui/material";
 import { ResponsiveContainer, AreaChart, XAxis, YAxis, Tooltip, Area } from "recharts";
 // Components
 import { HeaderBox } from "./HeaderBox";
+// Interfaces
+import { IntKpis } from "@/interfaces/IntKpis";
 
 type Props = {
-    revenueExpenses: {} | undefined;
+    data: Array<IntKpis> | undefined;
 };
 
-export const IndicatorA = ({ revenueExpenses }: Props) => {
+export const IndicatorA = ({ data }: Props) => {
     const { palette } = useTheme();
+
+    const revenueExpenses = useMemo(() => {
+        return(
+            data && 
+            data[0].monthlyData.map(({ month, revenue, expenses }) => {
+                return {
+                    name: month.substring(0, 3),
+                    revenue: revenue,
+                    expenses: expenses,
+                }
+            })
+        );
+    }, [data]);
 
     return(
         <DashboardBox gridArea="a">

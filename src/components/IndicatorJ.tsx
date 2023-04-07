@@ -1,11 +1,13 @@
 // Theme
 import { DashboardBox } from "@/themes/components/DashboardBox";
+// Interfaces
+import { IntKpis } from "@/interfaces/IntKpis";
 
 type Props = {
-    revenueExpenses: {} | undefined;
+    data: Array<IntKpis> | undefined;
 };
 
-export const IndicatorJ = ({ revenueExpenses }: Props) => {
+export const IndicatorJ = ({ data }: Props) => {
     return(
         <DashboardBox gridArea="j">
             J

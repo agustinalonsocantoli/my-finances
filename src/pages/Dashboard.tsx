@@ -1,5 +1,3 @@
-// React
-import { useMemo } from "react";
 // Redux
 import { useGetKpisQuery } from "@/API/api";
 // Components
@@ -22,20 +20,6 @@ export const Dashboard = () => {
     const isMediumScreens = useMediaQuery("(min-width: 1200px)")
     const { data } = useGetKpisQuery();
 
-    const revenueExpenses = useMemo(() => {
-        return(
-            data && 
-            data[0].monthlyData.map(({ month, revenue, expenses }) => {
-                return {
-                    name: month.substring(0, 3),
-                    revenue: revenue,
-                    expenses: expenses,
-                }
-            })
-        );
-    }, [data]);
-    
-
     return(
         <Box width="100%" height="100%" display="grid" gap="1.5rem" sx={ isMediumScreens ? {
             gridTemplateColumns: "repeat(3, minmax(370px, 1fr))",
@@ -49,16 +33,16 @@ export const Dashboard = () => {
         }
         }>
 
-            <IndicatorA revenueExpenses={revenueExpenses}/>
-            <IndicatorB revenueExpenses={revenueExpenses}/>
-            <IndicatorC revenueExpenses={revenueExpenses}/>
-            <IndicatorD revenueExpenses={revenueExpenses}/>
-            <IndicatorE revenueExpenses={revenueExpenses}/>
-            <IndicatorF revenueExpenses={revenueExpenses}/>
-            <IndicatorG revenueExpenses={revenueExpenses}/>
-            <IndicatorH revenueExpenses={revenueExpenses}/>
-            <IndicatorI revenueExpenses={revenueExpenses}/>
-            <IndicatorJ revenueExpenses={revenueExpenses}/>
+            <IndicatorA data={data}/>
+            <IndicatorB data={data}/>
+            <IndicatorC data={data}/>
+            <IndicatorD data={data}/>
+            <IndicatorE data={data}/>
+            <IndicatorF data={data}/>
+            <IndicatorG data={data}/>
+            <IndicatorH data={data}/>
+            <IndicatorI data={data}/>
+            <IndicatorJ data={data}/>
 
         </Box>
     );
