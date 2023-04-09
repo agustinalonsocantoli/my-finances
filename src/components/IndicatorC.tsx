@@ -12,23 +12,23 @@ import { HeaderBox } from "./HeaderBox";
 
 
 type Props = {
-    data: Array<IntKpis> | undefined;
+    dataKpis: Array<IntKpis> | undefined;
 };
 
-export const IndicatorC = ({ data }: Props) => {
+export const IndicatorC = ({ dataKpis }: Props) => {
     const { palette } = useTheme();
 
     const revenue = useMemo(() => {
         return(
-            data && 
-            data[0].monthlyData.map(({ month, revenue }) => {
+            dataKpis && 
+            dataKpis[0].monthlyData.map(({ month, revenue }) => {
                 return {
                     name: month.substring(0, 3),
                     revenue: revenue,
                 }
             })
         );
-    }, [data]);
+    }, [dataKpis]);
 
     return(
         <DashboardBox gridArea="c">

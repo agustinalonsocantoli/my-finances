@@ -11,16 +11,16 @@ import { HeaderBox } from "./HeaderBox";
 import { IntKpis } from "@/interfaces/IntKpis";
 
 type Props = {
-    data: Array<IntKpis> | undefined;
+    dataKpis: Array<IntKpis> | undefined;
 };
 
-export const IndicatorB = ({ data }: Props) => {
+export const IndicatorB = ({ dataKpis }: Props) => {
     const { palette } = useTheme();
 
     const revenueProfit = useMemo(() => {
         return(
-            data && 
-            data[0].monthlyData.map(({ month, revenue, expenses }) => {
+            dataKpis && 
+            dataKpis[0].monthlyData.map(({ month, revenue, expenses }) => {
                 return {
                     name: month.substring(0, 3),
                     revenue: revenue,
@@ -28,7 +28,7 @@ export const IndicatorB = ({ data }: Props) => {
                 }
             })
         );
-    }, [data]);
+    }, [dataKpis]);
 
     return(
         <DashboardBox gridArea="b">
@@ -39,7 +39,7 @@ export const IndicatorB = ({ data }: Props) => {
             />
 
             <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={revenueProfit} margin={{
+                <LineChart width={500} height={400} data={revenueProfit} margin={{
                     top: 20,
                     right: 0,
                     left: -10,

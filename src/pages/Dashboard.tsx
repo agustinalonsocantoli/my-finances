@@ -1,5 +1,5 @@
 // Redux
-import { useGetKpisQuery } from "@/API/api";
+import { useGetKpisQuery, useGetProductsQuery } from "@/API/api";
 // Components
 import { IndicatorA } from "@/components/IndicatorA";
 import { IndicatorB } from "@/components/IndicatorB";
@@ -18,7 +18,8 @@ import { gridTemplateLargeScreens, gridTemplateSmallScreens } from "@/themes/gri
 
 export const Dashboard = () => {
     const isMediumScreens = useMediaQuery("(min-width: 1200px)")
-    const { data } = useGetKpisQuery();
+    const { data: dataKpis } = useGetKpisQuery();
+    const { data: dataProduct } = useGetProductsQuery();
 
     return(
         <Box width="100%" height="100%" display="grid" gap="1.5rem" sx={ isMediumScreens ? {
@@ -33,16 +34,16 @@ export const Dashboard = () => {
         }
         }>
 
-            <IndicatorA data={data}/>
-            <IndicatorB data={data}/>
-            <IndicatorC data={data}/>
-            <IndicatorD data={data}/>
-            <IndicatorE data={data}/>
-            <IndicatorF data={data}/>
-            <IndicatorG data={data}/>
-            <IndicatorH data={data}/>
-            <IndicatorI data={data}/>
-            <IndicatorJ data={data}/>
+            <IndicatorA dataKpis={dataKpis}/>
+            <IndicatorB dataKpis={dataKpis}/>
+            <IndicatorC dataKpis={dataKpis}/>
+            <IndicatorD dataKpis={dataKpis}/>
+            <IndicatorE data={dataKpis}/>
+            <IndicatorF data={dataKpis}/>
+            <IndicatorG data={dataKpis}/>
+            <IndicatorH data={dataKpis}/>
+            <IndicatorI data={dataKpis}/>
+            <IndicatorJ data={dataKpis}/>
 
         </Box>
     );
