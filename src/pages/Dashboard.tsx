@@ -1,5 +1,5 @@
 // Redux
-import { useGetKpisQuery, useGetProductsQuery } from "@/API/api";
+import { useGetKpisQuery, useGetProductsQuery, useGetTransactionsQuery } from "@/API/api";
 // Components
 import { IndicatorA } from "@/components/IndicatorA";
 import { IndicatorB } from "@/components/IndicatorB";
@@ -20,6 +20,7 @@ export const Dashboard = () => {
     const isMediumScreens = useMediaQuery("(min-width: 1200px)")
     const { data: dataKpis } = useGetKpisQuery();
     const { data: dataProduct } = useGetProductsQuery();
+    const { data: dataTransaction } = useGetTransactionsQuery();
 
     return(
         <Box width="100%" height="100%" display="grid" gap="1.5rem" sx={ isMediumScreens ? {
@@ -40,8 +41,8 @@ export const Dashboard = () => {
             <IndicatorD dataKpis={dataKpis}/>
             <IndicatorE />
             <IndicatorF dataProduct={dataProduct}/>
-            <IndicatorG data={dataKpis}/>
-            <IndicatorH data={dataKpis}/>
+            <IndicatorG dataProduct={dataProduct}/>
+            <IndicatorH dataTransaction={dataTransaction}/>
             <IndicatorI data={dataKpis}/>
             <IndicatorJ data={dataKpis}/>
 
