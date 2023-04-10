@@ -39,7 +39,7 @@ export interface IntProducts {
     _id: string;
     __v: number;
     price: number;
-    expenses: number;
+    expense: number;
     transactions: Array<string>;
     createdAt: string;
     updatedAt: string;

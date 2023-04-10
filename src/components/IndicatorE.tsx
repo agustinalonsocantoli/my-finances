@@ -2,16 +2,10 @@
 import { DashboardBox } from "@/themes/components/DashboardBox";
 import { Box, Typography, useTheme } from "@mui/material";
 import { FlexBetween } from "@/themes/components/FlexBetween";
-// Interfaces
-import { IntKpis } from "@/interfaces/IntKpis";
 // Recharts
 import { Cell, Pie, PieChart } from "recharts";
 // Components
 import { HeaderBox } from "./HeaderBox";
-
-type Props = {
-    data: Array<IntKpis> | undefined;
-};
 
 const pieData = [
     {
@@ -24,7 +18,7 @@ const pieData = [
     }
 ]
 
-export const IndicatorE = ({ data }: Props) => {
+export const IndicatorE = () => {
     const { palette } = useTheme();
     const pieColors = [palette.primary[800], palette.primary[300]]
 

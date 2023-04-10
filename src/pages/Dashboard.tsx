@@ -38,8 +38,8 @@ export const Dashboard = () => {
             <IndicatorB dataKpis={dataKpis}/>
             <IndicatorC dataKpis={dataKpis}/>
             <IndicatorD dataKpis={dataKpis}/>
-            <IndicatorE data={dataKpis}/>
-            <IndicatorF data={dataKpis}/>
+            <IndicatorE />
+            <IndicatorF dataProduct={dataProduct}/>
             <IndicatorG data={dataKpis}/>
             <IndicatorH data={dataKpis}/>
             <IndicatorI data={dataKpis}/>
