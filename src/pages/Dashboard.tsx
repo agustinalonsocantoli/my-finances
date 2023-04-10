@@ -43,7 +43,7 @@ export const Dashboard = () => {
             <IndicatorF dataProduct={dataProduct}/>
             <IndicatorG dataProduct={dataProduct}/>
             <IndicatorH dataTransaction={dataTransaction}/>
-            <IndicatorI data={dataKpis}/>
+            <IndicatorI />
             <IndicatorJ data={dataKpis}/>
 
         </Box>
